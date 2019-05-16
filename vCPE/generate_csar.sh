@@ -58,8 +58,8 @@ for ns_type in $ns_types; do
     cd $ROOT_DIR/ns
     mkdir $ROOT_DIR/ns/tmp
     cp type_definition.yaml tmp/
-    cp TOSCA-Metadata tmp/
-    cp artifacts tmp/
+    cp -r TOSCA-Metadata tmp/
+    cp -r artifacts tmp/
     rm -rf tmp/artifacts/image
     if [ $ns_type == "ns_vgw" ]; then
         cp vcpe_ns_vgw.yaml tmp/vcpe.yaml
@@ -67,7 +67,8 @@ for ns_type in $ns_types; do
         cp vcpe.yaml tmp/vcpe.yaml
     fi
     cd $ROOT_DIR/ns/tmp
-    zip -r $ROOT_DIR/ns/$type.csar TOSCA-Metadata/ artifacts/ type_definition.yaml vcpe.yaml
-    rm -rf $DEST/$type.csar
-    mv $ROOT_DIR/ns/$type.csar $DEST
+    zip -r $ROOT_DIR/ns/$ns_type.csar TOSCA-Metadata/ artifacts/ type_definition.yaml vcpe.yaml
+    rm -rf $DEST/$ns_type.csar
+    mv $ROOT_DIR/ns/$ns_type.csar $DEST
+    rm -r $ROOT_DIR/ns/tmp
 done
