@@ -22,7 +22,7 @@ topology_template:
     vgw:
       type: tosca.nodes.nfv.VNF
       properties:
-        descriptor_id: 3fca3543-07f5-492f-812c-ed462e4f94f4
+        descriptor_id: b1bb0ce7-2222-4fa7-95ed-4840d70a1177
         provider: onap
         product_name: vcpe_vgw
         software_version: '1.0.0'
@@ -36,7 +36,7 @@ topology_template:
     vgmux:
       type: tosca.nodes.nfv.VNF
       properties:
-        descriptor_id: 0408f076-e6c0-4c82-9940-272fddbb82de
+        descriptor_id: b1bb0ce7-3333-4fa7-95ed-4840d70a1177
         provider: onap
         product_name: vcpe_vgmux
         software_version: '1.0.0'
@@ -50,7 +50,7 @@ topology_template:
     vcpe_infra:
       type: tosca.nodes.nfv.VNF
       properties:
-        descriptor_id: b1bb0ce7-2222-4fa7-95ed-4840d70a1100
+        descriptor_id: b1bb0ce7-1111-4fa7-95ed-4840d70a1177
         provider: onap
         product_name: vcpe_infra
         software_version: '1.0.0'
@@ -64,7 +64,7 @@ topology_template:
     vcpe_vbng:
       type: tosca.nodes.nfv.VNF
       properties:
-        descriptor_id: b1bb0ce7-2222-4fa7-95ed-4840d70a1101
+        descriptor_id: b1bb0ce7-5555-4fa7-95ed-4840d70a1177
         provider: onap
         product_name: vcpe_vbng
         software_version: '1.0.0'
@@ -78,7 +78,7 @@ topology_template:
     vcpe_vbrgemu:
       type: tosca.nodes.nfv.VNF
       properties:
-        descriptor_id: b1bb0ce7-2222-4fa7-95ed-4840d70a1102
+        descriptor_id: b1bb0ce7-4444-4fa7-95ed-4840d70a1177
         provider: onap
         product_name: vcpe_vbrgemu
         software_version: '1.0.0'
