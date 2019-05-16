@@ -49,3 +49,25 @@ for dir in $DIRS; do
     cd $ROOT_DIR/$dir
     rm -r $ROOT_DIR/$dir/tmp
 done
+
+# Create ns csar
+ns_types="ns_vgw ns"
+
+for ns_type in $ns_types; do
+    # prepare temporary csar build subdirectory
+    cd $ROOT_DIR/ns
+    mkdir $ROOT_DIR/ns/tmp
+    cp type_definition.yaml tmp/
+    cp TOSCA-Metadata tmp/
+    cp artifacts tmp/
+    rm -rf tmp/artifacts/image
+    if [ $ns_type == "ns_vgw" ]; then
+        cp vcpe_ns_vgw.yaml tmp/vcpe.yaml
+    else
+        cp vcpe.yaml tmp/vcpe.yaml
+    fi
+    cd $ROOT_DIR/ns/tmp
+    zip -r $ROOT_DIR/ns/$type.csar TOSCA-Metadata/ artifacts/ type_definition.yaml vcpe.yaml
+    rm -rf $DEST/$type.csar
+    mv $ROOT_DIR/ns/$type.csar $DEST
+done
